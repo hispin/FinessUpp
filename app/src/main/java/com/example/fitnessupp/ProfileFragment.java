@@ -1,14 +1,14 @@
 package com.example.fitnessupp;
 
 import android.os.Bundle;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     private ConstraintLayout accountSettings;
@@ -16,6 +16,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private ConstraintLayout userDetails;
     private ConstraintLayout notifications;
     private ConstraintLayout fingerprintSettings;
+    private Fragment pFrag;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.accountSettings:
-                Toast.makeText(requireActivity(), "hey1", Toast.LENGTH_SHORT).show();
+                pFrag = new AccountSettingsFragment();
+                FragmentTransaction ft1 = requireActivity().getSupportFragmentManager().beginTransaction();
+                ft1.replace(R.id.Fragment, pFrag);
+                ft1.addToBackStack(null);
+                ft1.commit();
                 break;
 
             case R.id.myStatus:
