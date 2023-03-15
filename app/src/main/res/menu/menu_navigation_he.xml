@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="בית"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+    <item
+        android:id="@+id/water"
+        android:title="מים"
+        android:icon="@drawable/noun_cup_of_water_667988"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="פרופיל"
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+
+</menu>

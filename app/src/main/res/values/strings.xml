@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FitnessUpp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="hello">hello</string>
+    <string name="home">home</string>
+    <string name="water">water</string>
+    <string name="profile">profile</string>
+    <string name="consumed">consumed</string>
+    <string name="remaining">remaining</string>
+    <string name="ml">ml</string>
+    <string name="AccountSettings">Account Settings</string>
+    <string name="MyStatus">My Status</string>
+    <string name="UserDetails">User Details</string>
+    <string name="Notifications">Notifications</string>
+    <string name="FingerprintSettings">Fingerprint Settings</string>
+
+
+</resources>

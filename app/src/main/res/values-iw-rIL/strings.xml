@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">שלום</string>
+    <string name="home">בית</string>
+    <string name="water">מים</string>
+    <string name="profile">פרופיל</string>
+    <string name="remaining">נותרו</string>
+    <string name="consumed">נצרכו</string>
+    <string name="ml">מל\'</string>
+    <string name="AccountSettings">הגדרות חשבון</string>
+    <string name="MyStatus">הסטטוס שלי</string>
+    <string name="UserDetails">פרטי משתמש</string>
+    <string name="Notifications">התראות</string>
+    <string name="FingerprintSettings">הגדרות טביעת אצבע</string>
+
+</resources>
