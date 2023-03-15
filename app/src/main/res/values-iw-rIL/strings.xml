@@ -13,5 +13,7 @@
     <string name="UserDetails">פרטי משתמש</string>
     <string name="Notifications">התראות</string>
     <string name="FingerprintSettings">הגדרות טביעת אצבע</string>
+    <string name="dailystatus">"סטטוס יומי "</string>
+    <string name="language">עברית</string>
 
 </resources>
