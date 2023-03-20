@@ -16,6 +16,10 @@
     <string name="FingerprintSettings">Fingerprint Settings</string>
     <string name="dailystatus">daily status</string>
     <string name="language">english</string>
+    <string name="selectafood">select a food</string>
+    <string name="common">common</string>
+    <string name="recentlyadded">Recently added</string>
+    <string name="login">login</string>
 
 
 </resources>

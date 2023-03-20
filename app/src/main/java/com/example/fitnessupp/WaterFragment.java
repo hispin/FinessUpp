@@ -31,6 +31,9 @@ public class WaterFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_water, container, false);
         setViews(view);
+
+        //TODO
+
         return view;
     }
 

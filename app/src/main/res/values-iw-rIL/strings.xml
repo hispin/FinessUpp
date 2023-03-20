@@ -15,5 +15,9 @@
     <string name="FingerprintSettings">הגדרות טביעת אצבע</string>
     <string name="dailystatus">"סטטוס יומי "</string>
     <string name="language">עברית</string>
+    <string name="selectafood">בחר אוכל</string>
+    <string name="common">נפוץ</string>
+    <string name="recentlyadded">התווסף לאחרונה</string>
+    <string name="login">התחבר</string>
 
 </resources>

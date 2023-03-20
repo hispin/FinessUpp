@@ -15,6 +15,11 @@ public class Food {
         this.totalCal = totalCal;
     }
 
+    public Food() {
+    }
+
+    //TODO
+
     public int getProtein() {
         return protein;
     }

@@ -18,7 +18,11 @@ public class User {
         this.caloricGoal = caloricGoal;
         this.isMale = isMale;
     }
-//TODO
+
+    public User() {
+    }
+
+    //TODO
 
 
     public String getUserName() {

@@ -13,6 +13,11 @@ public class Project {
         this.remainingWaterCount = remainingWaterCount;
     }
 
+    public Project() {
+    }
+
+    //TODO
+
     public int getCurrentCalorieCount() {
         return currentCalorieCount;
     }

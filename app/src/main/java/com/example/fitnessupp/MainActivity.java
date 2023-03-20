@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ConstraintLayout thirdData;
     private ConstraintLayout forthData;
     private TextView headlineTextView;
+    private TextView plusButtonMain;
     private Fragment fragMain;
     private MainViewModel mvmMain;
 
@@ -29,10 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setViews();
-        
 
-        //TODO
-        headlineTextView.setText("resources.getString(R.string.hello)");
         bottomNavMain.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -65,11 +63,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
         });
+        mvmMain = new MainViewModel();
+
+        //TODO
+
+
     }
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.plusButtonFood:
+                fragMain = new PlusFoodFragmant();
+                FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
+                ft4.replace(R.id.Fragment, fragMain);
+                ft4.addToBackStack(null);
+                ft4.commit();
+                break;
 
+            default:
+        }
     }
 
     public void setViews() {
@@ -79,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         secondData = findViewById(R.id.secondData);
         thirdData = findViewById(R.id.thirdData);
         forthData = findViewById(R.id.forthData);
+        plusButtonMain = findViewById(R.id.plusButtonFood);
 
         bottomNavMain.setSelectedItemId(R.id.home);
 
@@ -86,5 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         secondData.setOnClickListener(this);
         thirdData.setOnClickListener(this);
         forthData.setOnClickListener(this);
+        plusButtonMain.setOnClickListener(this);
     }
 }

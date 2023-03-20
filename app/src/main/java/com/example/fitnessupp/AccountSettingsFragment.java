@@ -25,9 +25,9 @@ public class AccountSettingsFragment extends Fragment implements View.OnClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_account_settings, container, false);
+        setViews(view);
 
         //TODO
-        setViews(view);
 
         return view;
     }
@@ -42,8 +42,8 @@ public class AccountSettingsFragment extends Fragment implements View.OnClickLis
                 Configuration configuration = resources.getConfiguration();
                 configuration.setLocale(locale);
                 resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-//                finish();
-//                startActivity(getIntent());
+//                requireActivity().finish();
+//                requireActivity().startActivity(getIntent());
 //                Fragment frg = null;
 //                frg = requireActivity().getSupportFragmentManager().findFragmentById(R.id.Fragment);
 //                final FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
