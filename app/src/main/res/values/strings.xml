@@ -24,6 +24,7 @@
     <string name="password">Password</string>
     <string name="Notregisteredyet">Not registered yet?</string>
     <string name="Signup">Sign Up</string>
+    <string name="youarenotinourdatabase">You are not in our database, you can try Sign Up</string>
 
 
 </resources>

@@ -1,7 +1,6 @@
 package com.example.fitnessupp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -15,7 +14,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private BottomNavigationView bottomNavMain;
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setViews();
-        initFirestore();
+//        initFirestore();
 
 
         bottomNavMain.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -73,13 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //TODO
 
-        auth = FirebaseAuth.getInstance();
 
-    }
-
-    private void initFirestore() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Log.d("shilo", "work");
     }
 
     @Override
@@ -96,6 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
         }
     }
+
+//    private void initFirestore() {
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        Log.d("shilo", "work");
+//    }
 
     public void setViews() {
         bottomNavMain = findViewById(R.id.bottom_navigation);

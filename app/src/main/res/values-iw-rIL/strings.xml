@@ -23,5 +23,6 @@
     <string name="username">שם משתמש</string>
     <string name="Notregisteredyet">עוד לא רשום?</string>
     <string name="Signup">הירשם</string>
+    <string name="youarenotinourdatabase">אתה לא במאגר הנתונים שלנו, אתה יכול לנסות להירשם</string>
 
 </resources>
