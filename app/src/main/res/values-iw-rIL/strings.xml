@@ -19,5 +19,9 @@
     <string name="common">נפוץ</string>
     <string name="recentlyadded">התווסף לאחרונה</string>
     <string name="login">התחבר</string>
+    <string name="password">סיסמא</string>
+    <string name="username">שם משתמש</string>
+    <string name="Notregisteredyet">עוד לא רשום?</string>
+    <string name="Signup">הירשם</string>
 
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "948916363085",
+    "project_id": "fitnessupp-faca4",
+    "storage_bucket": "fitnessupp-faca4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948916363085:android:7db85a68582c7188f16104",
+        "android_client_info": {
+          "package_name": "com.example.fitnessupp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948916363085-63sajsm9u6mdf7gp28dhq1no4n8fomud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGdk5_K5viA6idjcOePm4zcJuveUsn3eU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948916363085-63sajsm9u6mdf7gp28dhq1no4n8fomud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

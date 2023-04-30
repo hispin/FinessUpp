@@ -1,6 +1,7 @@
 package com.example.fitnessupp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private BottomNavigationView bottomNavMain;
@@ -24,12 +27,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView plusButtonMain;
     private Fragment fragMain;
     private MainViewModel mvmMain;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setViews();
+        initFirestore();
+
 
         bottomNavMain.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -67,7 +73,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //TODO
 
+        auth = FirebaseAuth.getInstance();
 
+    }
+
+    private void initFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Log.d("shilo", "work");
     }
 
     @Override

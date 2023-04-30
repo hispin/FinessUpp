@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,17 +78,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/accountSettings"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/backround"
-                        android:elevation="4dp"
                         android:clickable="true"
-                        android:id="@+id/accountSettings">
+                        android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/settingsImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -98,7 +98,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/settingsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -107,22 +107,22 @@
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/settingsImageView"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/myStatus"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/backround"
-                        android:elevation="4dp"
                         android:clickable="true"
-                        android:id="@+id/myStatus">
+                        android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/myStatusImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -132,7 +132,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/myStatusTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -141,22 +141,22 @@
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/myStatusImageView"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/userDetails"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/backround"
-                        android:elevation="4dp"
                         android:clickable="true"
-                        android:id="@+id/userDetails">
+                        android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/userDetailsImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -166,7 +166,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/userDetailsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -175,22 +175,22 @@
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/userDetailsImageView"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/notifications"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/backround"
-                        android:elevation="4dp"
                         android:clickable="true"
-                        android:id="@+id/notifications">
+                        android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/notificationsImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -200,7 +200,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/notificationsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -209,11 +209,11 @@
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/notificationsImageView"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/redDotNotificationsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="32dp"
@@ -226,26 +226,27 @@
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
                             android:text="4"
                             android:textColor="#ffffff"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                            app:layout_constraintStart_toStartOf="@+id/imageView5"
-                            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/redDotNotificationsTextView"
+                            app:layout_constraintStart_toStartOf="@+id/redDotNotificationsTextView"
+                            app:layout_constraintTop_toTopOf="@+id/redDotNotificationsTextView" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fingerprintSettings"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/backround"
-                        android:elevation="4dp"
                         android:clickable="true"
-                        android:id="@+id/fingerprintSettings">
+                        android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/fingerprintSettingsImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -255,7 +256,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/fingerprintSettingsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -264,7 +265,7 @@
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/fingerprintSettingsImageView"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
