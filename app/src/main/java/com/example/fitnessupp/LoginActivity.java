@@ -8,8 +8,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth auth;
     private String email;
     private String password;
+    private MainViewModel mvmLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setViews();
         auth = FirebaseAuth.getInstance();
         mySharedPref = getSharedPreferences("mySharedPref", MODE_PRIVATE);
-        myEdit = mySharedPref.edit();
-        userNameEd.setText(mySharedPref.getString("username", ""));
+        userNameEd.setText(mySharedPref.getString("userName", ""));
         if (auth.getCurrentUser() != null) {
             goToMainActivity();
         }
@@ -53,29 +57,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.logInTextViewCB:
+                myEdit = mySharedPref.edit();
                 myEdit.putString("userName", userNameEd.getText().toString());
                 if (logInTvcb.getText().equals(getResources().getString(R.string.login))) {
                     getEmailAndPassword();
-//                    auth.signInWithEmailAndPassword(email, password).addOnCanceledListener(this, new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if (task.isSuccessful()) {
-//                                login();
-//                            } else {
-//                                Toast.makeText(LoginActivity.this, getResources().getString(R.string.youarenotinourdatabase), Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    });
+                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                login();
+                            } else {
+                                Toast.makeText(LoginActivity.this, getResources().getString(R.string.youarenotinourdatabase), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
 
             case R.id.signUpTextViewCb:
-                if (signUTvcb.getText().equals(getResources().getString(R.string.Signup))) {
+                if (signUTvcb.getText().toString().equals(getResources().getString(R.string.Signup))) {
                     headlineTv.setText(getResources().getString(R.string.Signup));
                     logInTvcb.setText(getResources().getString(R.string.Signup));
                     registerTv.setText(getResources().getString(R.string.Alreadyregistered));
                     signUTvcb.setText(getResources().getString(R.string.login));
-                }
-                if (signUTvcb.getText().equals(getResources().getString(R.string.login))) {
+                } else if (signUTvcb.getText().toString().equals(getResources().getString(R.string.login))) {
                     headlineTv.setText(getResources().getString(R.string.login));
                     logInTvcb.setText(getResources().getString(R.string.login));
                     registerTv.setText(getResources().getString(R.string.Notregisteredyet));
@@ -111,5 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         logInTvcb.setOnClickListener(this);
         signUTvcb.setOnClickListener(this);
+
+        mvmLogin = new MainViewModel();
     }
 }
