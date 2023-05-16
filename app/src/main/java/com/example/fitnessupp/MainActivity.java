@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ConstraintLayout forthData;
     private TextView headlineTextView;
     private TextView plusButtonMain;
+    private TextView mainTextView;
     private Fragment fragMain;
     private MainViewModel mvmMain;
     private FirebaseAuth auth;
@@ -32,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setViews();
-//        initFirestore();
-
 
         bottomNavMain.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mvmMain = new MainViewModel();
 
         //TODO
-
+        //mainTextView.setText(mvmMain.getDetail());
 
     }
 
@@ -89,11 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//    private void initFirestore() {
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        Log.d("shilo", "work");
-//    }
-
     public void setViews() {
         bottomNavMain = findViewById(R.id.bottom_navigation);
         headlineTextView = findViewById(R.id.tttt);
@@ -102,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         thirdData = findViewById(R.id.thirdData);
         forthData = findViewById(R.id.forthData);
         plusButtonMain = findViewById(R.id.plusButtonFood);
+        mainTextView = findViewById(R.id.mainTextView);
 
         bottomNavMain.setSelectedItemId(R.id.home);
 

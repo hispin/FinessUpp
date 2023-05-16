@@ -41,10 +41,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (auth.getCurrentUser() != null) {
             goToMainActivity();
         }
-        //userNameEd.setText(mySharedPref.getString("userName", "-1"));
 
         //TODO
-        //myEdit.putString("userName", userNameEd.getText().toString());
     }
 
     private void goToMainActivity() {
@@ -55,48 +53,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.logInTextViewCB:
-                myEdit = mySharedPref.edit();
-                myEdit.putString("userName", userNameEd.getText().toString());
-                if (logInTvcb.getText().equals(getResources().getString(R.string.login))) {
-                    getEmailAndPassword();
-                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                login();
-                            } else {
-                                Toast.makeText(LoginActivity.this, getResources().getString(R.string.youarenotinourdatabase), Toast.LENGTH_SHORT).show();
-                            }
+        if (view.getId() == logInTvcb.getId()) {
+            myEdit = mySharedPref.edit();
+            myEdit.putString("userName", userNameEd.getText().toString());
+            if (logInTvcb.getText().equals(getResources().getString(R.string.login))) {
+                getEmailAndPassword();
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            login();
+                        } else {
+                            Toast.makeText(LoginActivity.this, getResources().getString(R.string.youarenotinourdatabase), Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
-
-            case R.id.signUpTextViewCb:
-                if (signUTvcb.getText().toString().equals(getResources().getString(R.string.Signup))) {
-                    headlineTv.setText(getResources().getString(R.string.Signup));
-                    logInTvcb.setText(getResources().getString(R.string.Signup));
-                    registerTv.setText(getResources().getString(R.string.Alreadyregistered));
-                    signUTvcb.setText(getResources().getString(R.string.login));
-                } else if (signUTvcb.getText().toString().equals(getResources().getString(R.string.login))) {
-                    headlineTv.setText(getResources().getString(R.string.login));
-                    logInTvcb.setText(getResources().getString(R.string.login));
-                    registerTv.setText(getResources().getString(R.string.Notregisteredyet));
-                    signUTvcb.setText(getResources().getString(R.string.Signup));
-                }
-
-            default:
+                    }
+                });
+            }
+        } else if (view.getId() == signUTvcb.getId()) {
+            if (signUTvcb.getText().toString().equals(getResources().getString(R.string.Signup))) {
+                headlineTv.setText(getResources().getString(R.string.Signup));
+                logInTvcb.setText(getResources().getString(R.string.Signup));
+                registerTv.setText(getResources().getString(R.string.Alreadyregistered));
+                signUTvcb.setText(getResources().getString(R.string.login));
+            } else if (signUTvcb.getText().toString().equals(getResources().getString(R.string.login))) {
+                headlineTv.setText(getResources().getString(R.string.login));
+                logInTvcb.setText(getResources().getString(R.string.login));
+                registerTv.setText(getResources().getString(R.string.Notregisteredyet));
+                signUTvcb.setText(getResources().getString(R.string.Signup));
+            }
         }
+
     }
 
     private void getEmailAndPassword() {
         email = userNameEd.getText().toString();
         password = passwordEd.getText().toString();
-    }
-
-    private void in() {
-        Toast.makeText(this, getResources().getString(R.string.youarenotinourdatabase), Toast.LENGTH_SHORT).show();
     }
 
     private void login() {

@@ -2,20 +2,18 @@ package com.example.fitnessupp;
 
 public class User {
     private String userName;
-    private String email;
+    private String password;
     private int age;
     private int height;
     private int weight;
-    private int caloricGoal;
     private boolean isMale;
 
-    public User(String userName, String email, int age, int height, int weight, int caloricGoal, boolean isMale) {
+    public User(String userName, String email, int age, int height, int weight, boolean isMale) {
         this.userName = userName;
-        this.email = email;
+        this.password = email;
         this.age = age;
         this.height = height;
         this.weight = weight;
-        this.caloricGoal = caloricGoal;
         this.isMale = isMale;
     }
 
@@ -33,12 +31,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
@@ -63,14 +61,6 @@ public class User {
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public int getCaloricGoal() {
-        return caloricGoal;
-    }
-
-    public void setCaloricGoal(int caloricGoal) {
-        this.caloricGoal = caloricGoal;
     }
 
     public boolean isMale() {

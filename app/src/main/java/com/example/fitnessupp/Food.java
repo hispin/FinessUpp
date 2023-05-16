@@ -1,18 +1,18 @@
 package com.example.fitnessupp;
 
 public class Food {
+    private String name;
     private int protein;
     private int carbohydrates;
     private int fat;
-    private int Sugar;
-    private int totalCal;
+    private int calories;
 
-    public Food(int protein, int carbohydrates, int fat, int sugar, int totalCal) {
+    public Food(String name, int protein, int carbohydrates, int fat, int calories) {
+        this.name = name;
         this.protein = protein;
         this.carbohydrates = carbohydrates;
         this.fat = fat;
-        Sugar = sugar;
-        this.totalCal = totalCal;
+        this.calories = calories;
     }
 
     public Food() {
@@ -44,19 +44,11 @@ public class Food {
         this.fat = fat;
     }
 
-    public int getSugar() {
-        return Sugar;
+    public int getCalories() {
+        return calories;
     }
 
-    public void setSugar(int sugar) {
-        Sugar = sugar;
-    }
-
-    public int getTotalCal() {
-        return totalCal;
-    }
-
-    public void setTotalCal(int totalCal) {
-        this.totalCal = totalCal;
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 }
