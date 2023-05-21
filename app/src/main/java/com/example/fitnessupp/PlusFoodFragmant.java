@@ -38,7 +38,7 @@ public class PlusFoodFragmant extends Fragment {
                         //TODO
                     }
                 });
-                recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+                recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
                 recyclerView.setAdapter(foodAdapter);
                 recyclerView.setHasFixedSize(true);
             }
