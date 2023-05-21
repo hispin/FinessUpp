@@ -6,6 +6,7 @@ public class Food {
     private int carbohydrates;
     private int fat;
     private int calories;
+    private int drawable;
 
     public Food(String name, int protein, int carbohydrates, int fat, int calories) {
         this.name = name;
@@ -50,5 +51,21 @@ public class Food {
 
     public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDrawable() {
+        return drawable;
+    }
+
+    public void setDrawable(int drawable) {
+        this.drawable = drawable;
     }
 }
