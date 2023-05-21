@@ -1,5 +1,6 @@
 package com.example.fitnessupp;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -10,18 +11,20 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class MainViewModel extends ViewModel {
-    private Food mvmFood;//
     private User mvmUser;
     private Project mvmProject;
     private Profile mvmProfile;
     private ArrayList<Food> foodArrayList;
+    public MutableLiveData<ArrayList<Food>> livedataFoodsList;
+
 
     public MainViewModel() {
-        mvmFood = new Food();
         mvmUser = new User();
         mvmProject = new Project();
         mvmProfile = new Profile();
+        foodArrayList = new ArrayList<>();
         getDetailedFromFireStore();
+        livedataFoodsList = new MutableLiveData<ArrayList<Food>>();
     }
 
     //TODO
@@ -51,7 +54,12 @@ public class MainViewModel extends ViewModel {
                         foodArrayList.add(food);
                     }
                 }
+                fillFoods();
             }
         });
+    }
+
+    public void fillFoods() {
+        livedataFoodsList.setValue(foodArrayList);
     }
 }

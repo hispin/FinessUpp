@@ -16,7 +16,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
     private ArrayList<Food> foods;
     private OnItemClickLister lister;
 
-    public FoodAdapter(ArrayList<Food> Foods, OnItemClickLister lister) {
+    public FoodAdapter(ArrayList<Food> foods, OnItemClickLister lister) {
         this.foods = foods;
         this.lister = lister;
     }
@@ -37,7 +37,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
     public int getItemCount() {
         return foods.size();
     }
-//TODO
+
     public interface OnItemClickLister {
         void onItemClick(Food food);
     }
@@ -54,7 +54,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
 
         public void bind(final Food food, final OnItemClickLister lister) {
             foodName.setText(food.getName() + "");
-            foodImage.setImageResource(food.getDrawable());
+            //foodImage.setImageResource(food.getDrawable());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
