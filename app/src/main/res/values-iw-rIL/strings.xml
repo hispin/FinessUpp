@@ -26,5 +26,6 @@
     <string name="youarenotinourdatabase">אתה לא במאגר הנתונים שלנו, אתה יכול לנסות להירשם</string>
     <string name="Alreadyregistered">כבר רשום?</string>
     <string name="signout">התנתק</string>
+    <string name="Amount">הכנס כמות</string>
 
 </resources>

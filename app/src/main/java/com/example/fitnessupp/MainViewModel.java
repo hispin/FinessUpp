@@ -1,11 +1,18 @@
 package com.example.fitnessupp;
 
+import android.util.Log;
+
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -23,7 +30,7 @@ public class MainViewModel extends ViewModel {
         mvmProject = new Project();
         mvmProfile = new Profile();
         foodArrayList = new ArrayList<>();
-        getDetailedFromFireStore();
+        getDetailedFromFireStore2();
         livedataFoodsList = new MutableLiveData<ArrayList<Food>>();
     }
 
@@ -57,6 +64,37 @@ public class MainViewModel extends ViewModel {
                 fillFoods();
             }
         });
+    }
+
+    public void getDetailedFromFireStore2() {
+        final CollectionReference docRef = FirebaseFirestore.getInstance().collection("Food");
+        docRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.w("TAG", "failed", error);
+                    return;
+                }
+
+                foodArrayList = new ArrayList<>();
+                for (QueryDocumentSnapshot doc : value) {
+                    String name = doc.getString("name");
+                    long protein = doc.getLong("protein");
+                    int protein1 = Math.toIntExact(protein);
+                    Long carbohydrate = doc.getLong("carbohydrate");
+                    int carbohydrate1 = Math.toIntExact(carbohydrate);
+                    Long fat = doc.getLong("fat");
+                    int fat1 = Math.toIntExact(fat);
+                    Long calories = doc.getLong("calories");
+                    int calories1 = Math.toIntExact(calories);
+                    Food food = new Food(name, protein1, carbohydrate1, fat1, calories1);
+                    foodArrayList.add(food);
+                }
+                fillFoods();
+                Log.d("TIG", "Current Food in CA: " + foodArrayList);
+            }
+        });
+
     }
 
     public void fillFoods() {

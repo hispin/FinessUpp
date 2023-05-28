@@ -27,6 +27,7 @@
     <string name="youarenotinourdatabase">You are not in our database, you can try Sign Up</string>
     <string name="Alreadyregistered">Already registered?</string>
     <string name="signout">Sign Out</string>
+    <string name="Amount">Enter an amount</string>
 
 
 </resources>

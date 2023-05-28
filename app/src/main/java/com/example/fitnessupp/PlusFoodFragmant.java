@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class PlusFoodFragmant extends Fragment {
     private MainViewModel mvmPlusFf;
     private RecyclerView recyclerView;
+    private EditText foodAmountEd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class PlusFoodFragmant extends Fragment {
                     @Override
                     public void onItemClick(Food food) {
                         //TODO
+                        //foodAmountEd.setCursorVisible(true) ;
                     }
                 });
                 recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
@@ -49,5 +52,6 @@ public class PlusFoodFragmant extends Fragment {
 
     public void setViews(View view) {
         recyclerView = view.findViewById(R.id.recycleViewPf);
+        foodAmountEd = view.findViewById(R.id.foodAmountEd);
     }
 }
