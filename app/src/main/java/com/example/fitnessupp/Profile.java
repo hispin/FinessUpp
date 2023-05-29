@@ -19,6 +19,7 @@ public class Profile extends User {
     }
 
     public Profile() {
+        super();
         foodArrayList = new ArrayList<>();
     }
 

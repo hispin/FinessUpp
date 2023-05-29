@@ -28,6 +28,8 @@
     <string name="Alreadyregistered">Already registered?</string>
     <string name="signout">Sign Out</string>
     <string name="Amount">Enter an amount</string>
+    <string name="cm">cm</string>
+    <string name="Kg">Kg</string>
 
 
 </resources>

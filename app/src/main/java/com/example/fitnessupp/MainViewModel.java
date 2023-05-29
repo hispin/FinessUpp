@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +23,7 @@ public class MainViewModel extends ViewModel {
     private Profile mvmProfile;
     private ArrayList<Food> foodArrayList;
     public MutableLiveData<ArrayList<Food>> livedataFoodsList;
+    private User user;
 
 
     public MainViewModel() {
@@ -30,8 +31,9 @@ public class MainViewModel extends ViewModel {
         mvmProject = new Project();
         mvmProfile = new Profile();
         foodArrayList = new ArrayList<>();
-        getDetailedFromFireStore2();
         livedataFoodsList = new MutableLiveData<ArrayList<Food>>();
+        getFoodAllCollection();
+        getUserDetails();
     }
 
     //TODO
@@ -42,31 +44,41 @@ public class MainViewModel extends ViewModel {
         return s;
     }
 
-    public void getDetailedFromFireStore() {
-        FirebaseFirestore.getInstance().collection("Food").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+    public void getUserDetails() {
+        final DocumentReference docRef = FirebaseFirestore.getInstance().collection("Users").document("HF8dY82mWp030VlEnojK");
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    if (documentSnapshot.exists()) {
-                        String name = documentSnapshot.getString("name");
-                        Long protein = documentSnapshot.getLong("protein");
-                        int protein1 = Math.toIntExact(protein);
-                        Long carbohydrate = documentSnapshot.getLong("carbohydrate");
-                        int carbohydrate1 = Math.toIntExact(carbohydrate);
-                        Long fat = documentSnapshot.getLong("fat");
-                        int fat1 = Math.toIntExact(fat);
-                        Long calories = documentSnapshot.getLong("calories");
-                        int calories1 = Math.toIntExact(calories);
-                        Food food = new Food(name, protein1, carbohydrate1, fat1, calories1);
-                        foodArrayList.add(food);
-                    }
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.w("Tag", "Listen failed", error);
+                    return;
                 }
-                fillFoods();
+
+                if (value != null && value.exists()) {
+                    String userName = value.getString("userName");
+                    //user.setUserName(userName);
+                    String email = value.getString("email");
+                    //user.setEmail(email);
+                    String password = value.getString("password");
+                    //user.setPassword(password);
+                    long age = value.getLong("age");
+                    int age1 = Math.toIntExact(age);
+                    //user.setAge(age1);
+                    Long height = value.getLong("height");
+                    int height1 = Math.toIntExact(height);
+                    //user.setHeight(height1);
+                    Long weight = value.getLong("weight");
+                    int weight1 = Math.toIntExact(weight);
+                    //user.setWeight(weight1);
+                    boolean isMale = value.getBoolean("isMale");
+                    //user.setMale(isMale);
+                    user = new User(userName, email, password, age1, height1, weight1, isMale);
+                }
             }
         });
     }
 
-    public void getDetailedFromFireStore2() {
+    public void getFoodAllCollection() {
         final CollectionReference docRef = FirebaseFirestore.getInstance().collection("Food");
         docRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -99,5 +111,9 @@ public class MainViewModel extends ViewModel {
 
     public void fillFoods() {
         livedataFoodsList.setValue(foodArrayList);
+    }
+
+    public User getUser() {
+        return user;
     }
 }

@@ -46,36 +46,43 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/profileUserNameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
                     android:text="Shilo Sanders"
                     android:textSize="25dp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/profileEmailTv"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/profileEmailTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="shilosan12@gmail.com"
                     android:textSize="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintTop_toBottomOf="@+id/profileUserNameTv" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="32dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="1dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2">
+                    app:layout_constraintTop_toBottomOf="@+id/profileEmailTv">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/accountSettings"
@@ -216,10 +223,12 @@
                             android:id="@+id/redDotNotificationsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="112dp"
                             android:layout_marginEnd="32dp"
                             android:src="@drawable/circle_red"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/notificationsTextView"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView

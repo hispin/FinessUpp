@@ -27,5 +27,7 @@
     <string name="Alreadyregistered">כבר רשום?</string>
     <string name="signout">התנתק</string>
     <string name="Amount">הכנס כמות</string>
+    <string name="cm">ס\"מ</string>
+    <string name="Kg">ק\"ג</string>
 
 </resources>
